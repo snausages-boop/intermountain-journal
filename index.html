@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermountain West Journal of Thought</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-site: #f4f4f4;
+            --card-bg: #ffffff;
+            --text-main: #111111;
+            --text-muted: #666666;
+            --accent-red: #b30000;
+            --border-color: #dcdcdc;
+            --header-dark: #1a1a1a;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Merriweather', Georgia, serif; background-color: var(--bg-site); color: var(--text-main); line-height: 1.6; }
+        .utility-bar { background-color: var(--header-dark); color: #cccccc; font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        header { background-color: var(--card-bg); border-bottom: 4px solid var(--header-dark); padding: 2rem 1rem; text-align: center; }
+        .site-title { font-family: 'Oswald', sans-serif; font-size: 3rem; font-weight: 700; color: var(--header-dark); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.25rem; }
+        .site-tagline { font-family: 'Merriweather', Georgia, serif; font-style: italic; font-size: 0.9rem; color: var(--text-muted); letter-spacing: 0.05em; }
+        nav { background-color: var(--card-bg); border-bottom: 2px solid var(--border-color); padding: 0.5rem 1rem; text-align: center; font-family: 'Oswald', sans-serif; position: sticky; top: 0; z-index: 100; }
+        nav a { color: var(--header-dark); text-decoration: none; margin: 0 1rem; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        nav a:hover, nav a.active { color: var(--accent-red); }
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+        .article-card { background-color: var(--card-bg); border: 1px solid var(--border-color); padding: 2rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent-red); }
+        .category-tag { font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--accent-red); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+        h2 a { font-family: 'Merriweather', Georgia, serif; font-size: 1.75rem; font-weight: 700; color: var(--header-dark); text-decoration: none; line-height: 1.25; }
+        h2 a:hover { color: var(--accent-red); }
+        .article-excerpt { margin-top: 0.75rem; color: var(--text-muted); font-size: 1rem; }
+        footer { background-color: var(--header-dark); color: #999999; text-align: center; padding: 2rem 1rem; font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+
+    <div class="utility-bar">
+        <span>Est. 2026 &bull; <b>Regional Investigative Journalism</b></span>
+        <span>Intermountain Edition</span>
+    </div>
+
+    <header>
+        <div class="site-title">Intermountain West Journal of Thought</div>
+        <div class="site-tagline">"Bringing truth, no matter where that truth lands."</div>
+    </header>
+
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="#">Markets</a>
+        <a href="#">Law</a>
+        <a href="#">State Sovereignty</a>
+        <a href="#">Opinion</a>
+    </nav>
+
+    <div class="container">
+        <main>
+            <div class="article-card">
+                <div class="category-tag">Constitutional &amp; Regulatory Law</div>
+                <h2><a href="202610031.html">Federal Circuit Splits Open the Door for Supreme Court Showdown Over State Betting Authority</a></h2>
+                <p class="article-excerpt">The prediction markets industry is hurtling toward a constitutional collision course with state regulatory boards following yet another appellate defeat...</p>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        &copy; 2026 Intermountain West Journal of Thought &bull; Static Infrastructure &bull; Zero Trackers
+    </footer>
+
+</body>
+</html>

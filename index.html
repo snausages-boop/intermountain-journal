@@ -33,6 +33,7 @@
         h2 a:hover { color: var(--accent-red); }
         .article-excerpt { margin-top: 0.75rem; color: var(--text-muted); font-size: 1rem; }
         footer { background-color: var(--header-dark); color: #999999; text-align: center; padding: 2rem 1rem; font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 3rem; }
+        .no-articles { text-align: center; padding: 3rem; color: var(--text-muted); font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; }
     </style>
 </head>
 <body>
@@ -48,22 +49,22 @@
     </header>
 
     <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="#">Markets</a>
-        <a href="#">Law</a>
-        <a href="#">State Sovereignty</a>
-        <a href="#">Opinion</a>
+        <a href="index.html" id="nav-home">Home</a>
+        <a href="index.html?cat=markets" id="nav-markets">Markets</a>
+        <a href="index.html?cat=law" id="nav-law">Law</a>
+        <a href="index.html?cat=sovereignty" id="nav-sovereignty">State Sovereignty</a>
+        <a href="index.html?cat=opinion" id="nav-opinion">Opinion</a>
     </nav>
 
     <div class="container">
-        <main>
-            <div class="article-card">
+        <main id="article-container">
+            <div class="article-card" data-category="markets">
                 <div class="category-tag">Energy Markets &amp; Policy</div>
                 <h2><a href="202610041.html">Another Manufactured Crisis: Why America's Fuel Refining Capacity Left Us Vulnerable</a></h2>
                 <p class="article-excerpt">A hard look at how global market integration, regulatory bottlenecks, and a lack of safety buffers stripped redundancy out of the U.S. energy grid.</p>
             </div>
 
-            <div class="article-card">
+            <div class="article-card" data-category="law">
                 <div class="category-tag">Constitutional &amp; Regulatory Law</div>
                 <h2><a href="202610031.html">Federal Circuit Splits Open the Door for Supreme Court Showdown Over State Betting Authority</a></h2>
                 <p class="article-excerpt">The prediction markets industry is hurtling toward a constitutional collision course with state regulatory boards following yet another appellate defeat.</p>
@@ -75,5 +76,38 @@
         &copy; 2026 Intermountain West Journal of Thought &bull; Static Infrastructure &bull; Zero Trackers
     </footer>
 
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const cat = urlParams.get('cat');
+        const cards = document.querySelectorAll('.article-card');
+        const container = document.getElementById('article-container');
+
+        // Highlight active nav item
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+
+        if (!cat) {
+            document.getElementById('nav-home').classList.add('active');
+        } else {
+            const activeNav = document.getElementById('nav-' + cat);
+            if (activeNav) activeNav.classList.add('active');
+
+            let visibleCount = 0;
+            cards.forEach(card => {
+                if (card.getAttribute('data-category') === cat) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                const emptyMsg = document.createElement('div');
+                emptyMsg.className = 'no-articles';
+                emptyMsg.innerText = 'No dispatches found in this category.';
+                container.appendChild(emptyMsg);
+            }
+        }
+    </script>
 </body>
 </html>
